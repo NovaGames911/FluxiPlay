@@ -1239,6 +1239,7 @@
             initSoundEffects();
             initInteractiveParticles();
             initIntersectionObserver();
+            initAnalyticsEvents(); // New: Track user interactions
             
             // Delayed typewriter effect
             setTimeout(initTypewriterEffect, 1000);
@@ -1254,6 +1255,133 @@
                 document.body.style.opacity = '1';
             }, 100);
         });
+
+        // Google Analytics Event Tracking
+        function initAnalyticsEvents() {
+            // Track email contact clicks
+            const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+            emailLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    gtag('event', 'contact_email_click', {
+                        event_category: 'engagement',
+                        event_label: 'email_contact',
+                        value: 1
+                    });
+                });
+            });
+
+            // Track privacy policy views
+            const privacyLink = document.querySelector('a[href="#privacy"]');
+            if (privacyLink) {
+                privacyLink.addEventListener('click', () => {
+                    gtag('event', 'privacy_policy_view', {
+                        event_category: 'engagement',
+                        event_label: 'privacy_policy',
+                        value: 1
+                    });
+                });
+            }
+
+            // Track section scrolling (Features, About, Contact)
+            const sections = ['features', 'about', 'contact'];
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                gtag('event', 'section_view', {
+                                    event_category: 'engagement',
+                                    event_label: sectionId,
+                                    value: 1
+                                });
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    
+                    observer.observe(section);
+                }
+            });
+
+            // Track CTA button clicks
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    gtag('event', 'cta_click', {
+                        event_category: 'engagement',
+                        event_label: `cta_button_${index + 1}`,
+                        value: 1
+                    });
+                });
+            });
+
+            // Track time on site (after 30 seconds)
+            setTimeout(() => {
+                gtag('event', 'engaged_session', {
+                    event_category: 'engagement',
+                    event_label: 'time_on_site_30s',
+                    value: 30
+                });
+            }, 30000);
+
+            // Track time on site (after 2 minutes - highly engaged)
+            setTimeout(() => {
+                gtag('event', 'highly_engaged_session', {
+                    event_category: 'engagement',
+                    event_label: 'time_on_site_2min',
+                    value: 120
+                });
+            }, 120000);
+
+            // Track scroll depth
+            let maxScroll = 0;
+            window.addEventListener('scroll', () => {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                
+                if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                    
+                    // Track significant scroll milestones
+                    if (scrollPercent >= 25 && maxScroll < 50) {
+                        gtag('event', 'scroll_depth', {
+                            event_category: 'engagement',
+                            event_label: '25_percent',
+                            value: 25
+                        });
+                    } else if (scrollPercent >= 50 && maxScroll < 75) {
+                        gtag('event', 'scroll_depth', {
+                            event_category: 'engagement',
+                            event_label: '50_percent',
+                            value: 50
+                        });
+                    } else if (scrollPercent >= 75 && maxScroll < 90) {
+                        gtag('event', 'scroll_depth', {
+                            event_category: 'engagement',
+                            event_label: '75_percent',
+                            value: 75
+                        });
+                    } else if (scrollPercent >= 90) {
+                        gtag('event', 'scroll_depth', {
+                            event_category: 'engagement',
+                            event_label: '90_percent',
+                            value: 90
+                        });
+                    }
+                }
+            });
+
+            // Track feature card interactions
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                card.addEventListener('mouseenter', () => {
+                    gtag('event', 'feature_card_hover', {
+                        event_category: 'engagement',
+                        event_label: `feature_${index + 1}`,
+                        value: 1
+                    });
+                });
+            });
+        }
 
         // Performance monitoring
         if ('performance' in window) {
