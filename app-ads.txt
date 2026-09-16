@@ -178,7 +178,7 @@ loopme.com, 15685, RESELLER, 6c8d5f95897a5a3b
 smaato.com, 1100060225, RESELLER, 07bcf65f187117b4
 media.net, 8CA8O7D3V, RESELLER, 818f58666cabc936
 openx.com, 540844550, RESELLER, 6a698e2ec38604c6
-video.unrulymedia.com, 1200765299, RESELLER, 98c21ef9a666c68
+video.unrulymedia.com, 1200765299, RESELLER, 98c21ef9a666c68b
 rubiconproject.com, 24202, RESELLER, 0bfd66d529a55807
 sharethrough.com, 0CDxBhsW, RESELLER, d53b998a7bd4ecd2
 lijit.com, 582934, RESELLER, fafdf38b16bf6b2b
@@ -188,7 +188,7 @@ jamx.ai, 402977, DIRECT
 pubmatic.com, 166396, RESELLER, 5d62403b186f2ace
 appnexus.com, 16546, RESELLER, f5ab79cb980f11d1
 themediagrid.com, VM75KS, RESELLER, 9fac4a4a87c2a44f
-video.unrulymedia.com, 946176315, RESELLER, 98c21ef9a666c68
+video.unrulymedia.com, 946176315, RESELLER, 98c21ef9a666c68b
 pwr-games.com, 415827, DIRECT
 smartadserver.com, 5883, RESELLER, 060d053dcf45cbf3
 triplelift.com, 12613, RESELLER, 6c33edb13117fd86
@@ -204,7 +204,7 @@ winvid.tv, 425828, DIRECT, d277f3b454496716
 lijit.com, 481808, RESELLER, fafdf38b16bf6b2b
 smartadserver.com, 5276, RESELLER, 060d053dcf45cbf3
 appnexus.com, 11450, RESELLER, f5ab79cb980f11d1
-video.unrulymedia.com, 7267380105862376423, RESELLER, 98c21ef9a666c68
+video.unrulymedia.com, 7267380105862376423, RESELLER, 98c21ef9a666c68b
 consumable.com, 2001454, RESELLER, aefcd3d2f45b5070
 rtbhouse.com, 1HFOytS8uOqkhz8av8V7, RESELLER, 4f3b94578e85950c
 pubmatic.com, 161858, RESELLER, 5d62403b186f2ace
