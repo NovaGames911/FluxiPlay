@@ -208,3 +208,6 @@ video.unrulymedia.com, 7267380105862376423, RESELLER, 98c21ef9a666c68b
 consumable.com, 2001454, RESELLER, aefcd3d2f45b5070
 rtbhouse.com, 1HFOytS8uOqkhz8av8V7, RESELLER, 4f3b94578e85950c
 pubmatic.com, 161858, RESELLER, 5d62403b186f2ace
+bold-win.com, 1013, RESELLER, 71746737d0bab951
+triplelift.com, 8614, RESELLER, 6c33edb13117fd86
+my-cast.tv, 987033, RESELLER, 8c33fe1bd714ffd7
